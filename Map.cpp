@@ -275,7 +275,6 @@ void Map :: outputMapToFile(string outputFilePath){
 void Map :: outputMapToTerminal(int type){
   switch (type){
     case 1: //pause
-      //system("pause");
       sleep(1);
       break;
     case 2: //enter

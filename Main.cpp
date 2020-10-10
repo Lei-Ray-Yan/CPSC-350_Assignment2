@@ -80,9 +80,12 @@ int main(int argc, char** argv){
   //waiting for user input to end the program.
   cout << endl;
   cout << "Press Enter to exit the program. " << endl;
+  if(resultsOutputType == 1){ //fix the bug that sleep() causes an auto '\n' input to deactivate the "wait for enter to exit" feature. 
+    cin.ignore(1);
+  }
   while(true){
     if (cin.get() == '\n'){
-      exit(0);
+      break;
     }
   }
 
