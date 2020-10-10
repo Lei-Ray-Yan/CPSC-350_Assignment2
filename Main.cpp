@@ -6,7 +6,7 @@
 - Assignment 2
 
 - this is the Main file of this assignment.
-- In the Main file, the program prompt for all the required configuration from the user to deside the operating mode, outputing inputing mode, etc. 
+- In the Main file, the program prompt for all the required configuration from the user to deside the operating mode, outputing inputing mode, etc.
 
 */
 
@@ -20,19 +20,20 @@ using namespace std;
 
 
 int main(int argc, char** argv){
+  //defining variables for holding user inputs.
   int mapCreationType;
   int inputX;
   int inputY;
   float density;
   string inputFilePath;
-
   int mapBoundaryType;
-
   int resultsOutputType;
   string outputFilePath;
-
+  //initializing the map.
   Map map;
 
+
+  //constructions and taking user inputs.
   cout << "Game of Life: Simulation of Bacteria Lifecyles" << endl;
 
   cout << "Choose Map Creation (by typing in 1 or 2): " << endl;
@@ -54,7 +55,6 @@ int main(int argc, char** argv){
     cin >> inputFilePath;
   }
 
-
   cout << "Choose Map Boundary Type (by typing in 1, 2 or 3): " << endl;
   cout << "1. Classic Mode. " << endl;
   cout << "2. Doughnut Mode. " << endl;
@@ -71,12 +71,22 @@ int main(int argc, char** argv){
     cin >> outputFilePath;
   }
 
+
+  //executing.
   map.generateMap(mapCreationType, mapBoundaryType, resultsOutputType, inputX, inputY, density, inputFilePath);
   map.generateSimulations(resultsOutputType, outputFilePath);
 
-  // map.generateMap(1, 3, 2, 3, 4, 0.5, "RaymondYan.txt");
-  // map.generateSimulations(2);
 
+  //waiting for user input to end the program.
+  cout << endl;
+  cout << "Press Enter to exit the program. " << endl;
+  while(true){
+    if (cin.get() == '\n'){
+      exit(0);
+    }
+  }
+
+  return 0;
 }
 
 

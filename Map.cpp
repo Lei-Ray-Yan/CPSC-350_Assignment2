@@ -60,10 +60,13 @@ void Map :: initializeMap(int x, int y){
   currentGeneration = 0;
 
   gridMap = new Cell*[sizeX];
-  for(int i=0; i<sizeY; ++i){
+  for(int i=0; i<sizeX; ++i){
     gridMap[i] = new Cell[sizeY];
+
   }
+  cout << "Map initialized. " << endl;
   initializeMapCells();
+  cout << "Map cells initialized. " << endl;
 }
 
 void Map :: initializeMapCells(){
@@ -276,9 +279,7 @@ void Map :: outputMapToTerminal(int type){
       sleep(1);
       break;
     case 2: //enter
-      int safeExit = 0;
-      while(safeExit < 10000){
-        safeExit += 1;
+      while(true){
         if (cin.get() == '\n'){
           break;
         }

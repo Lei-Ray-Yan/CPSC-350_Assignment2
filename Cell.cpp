@@ -34,6 +34,10 @@ Cell :: Cell(){
   gameMode = 0;
 }
 
+Cell :: ~Cell(){
+  //do nothing
+}
+
 Cell :: Cell(int posX, int posY, Map* map, int mode){
   x = posX;
   y = posY;
@@ -43,9 +47,6 @@ Cell :: Cell(int posX, int posY, Map* map, int mode){
   gameMode = mode;
 }
 
-Cell :: ~Cell(){
-  //do nothing
-}
 
 void Cell :: refresh(){
   status = futureStatus;
@@ -90,9 +91,6 @@ void Cell :: updateNextGeneration(Cell** grids, int sx, int sy){
   }
 
 }
-
-
-
 
 void Cell :: findAllNeighborGrids(int neighborGrids[8][2], int sx, int sy){
   int gridLines = 8;
@@ -191,13 +189,6 @@ int Cell :: checkSpecialCellPosition(int valueCategory, int value, int sx, int s
   return 0;
 }
 
-
-
-
-
-
-
-
 bool Cell :: checkCellOccupied(Cell cell){
   int status = cell.getStatus();
   if(status == 1){
@@ -205,8 +196,6 @@ bool Cell :: checkCellOccupied(Cell cell){
   }
   return false;
 }
-
-
 
 int Cell :: getStatus(){
   return status;
